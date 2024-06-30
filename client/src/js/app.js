@@ -36,8 +36,21 @@ async function formChecker(contactForm) {
 		unvalidInputs.forEach((iter) => setInputStatus(iter, false));
 	}
 }
+
+function formStatusHandler(contactForm, status) {
+	var courseFormMain = contactForm.querySelector('.course-form__main');
+	if (status) {
+		courseFormMain.classList.add('loading');
+		contactForm.isRequestPending = true;
+	} else {
+		courseFormMain.classList.remove('loading');
+		contactForm.isRequestPending = false;
+	}
+}
 async function sendRequest() {
 	try {
+		if (contactForm.isRequestPending) return;
+		formStatusHandler(contactForm, true);
 		var contactFormUrl = contactForm.getAttribute('data-request-link');
 		var { telephoneInput, emailInput, nameInput } = getInputsData(contactForm);
 
@@ -67,6 +80,8 @@ async function sendRequest() {
 	} catch (error) {
 		setInputStatusWrapper(contactForm, false);
 		updateFormStatus(contactForm, false);
+	} finally {
+		formStatusHandler(contactForm, false);
 	}
 }
 function resetFormValues(contactForm) {

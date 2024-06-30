@@ -4,8 +4,8 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<title>rgb_test volodymir harmash</title>
-		<link href="css/fonts/fonts.min.css?_v=20240630120945" rel="stylesheet">
-		<link href="css/styles.min.css?_v=20240630120945" rel="stylesheet">
+		<link href="css/fonts/fonts.min.css?_v=20240630125845" rel="stylesheet">
+		<link href="css/styles.min.css?_v=20240630125845" rel="stylesheet">
 		
 		<script>
 			// hack to get the plugin to work without loading jQuery
@@ -16,7 +16,7 @@
 			};
 			window.$.fn = {};
 		</script>
-		<script defer="defer" src="js/app.min.js?_v=20240630120945"></script>
+		<script defer="defer" src="js/app.min.js?_v=20240630125845"></script>
 	</head>
 	<body>
 		<header class="header">
@@ -116,10 +116,15 @@
 									<input class="course-form__main-input" type="text" data-validation-type="email" placeholder="Ваш email">
 									<span class="course-form__main-field-error course-form__main-field-error-standart">Введите корректный адресс почты</span>
 								</div>
-								
+
 								<div class="course-form__main-button-container">
 									<button class="course-form__main-button">
 										<span class="course-form__main-button--send">Записаться бесплатно</span>
+										<span class="course-form__main-button--loading">
+											<span class="dot">.</span>
+											<span class="dot">.</span>
+											<span class="dot">.</span>
+										</span>
 									</button>
 								</div>
 							</div>
