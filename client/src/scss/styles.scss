@@ -100,6 +100,12 @@ h6 {
 				padding-left: 23px;
 				padding-right: 22px;
 				align-items: center;
+				transition: all 0.3s ease-in-out;
+				&:hover {
+					background-color: lighten($color: $violetColor, $amount: 5);
+
+
+				}
 				@media (max-width: 750px) {
 					font-size: 11px;
 					padding-top: 6.02px;
@@ -512,6 +518,9 @@ h6 {
 					border-radius: 5px;
 					width: 100%;
 					border: 1px solid transparent;
+					&:hover, &:focus {
+						box-shadow: 1px 1px 1px darken($deepDarkBlue, 10);
+					}
 					&::placeholder {
 						color: $lightAccentColor;
 					}
@@ -544,8 +553,9 @@ h6 {
 				font-size: 15px;
 				line-height: 24px;
 				color: $lightColor;
+				transition: all 0.3s ease-in-out;
 				@media (max-width: 600px) {
-					background-color: #0048ff;
+					background-color: $lightBlueColor;
 					height: 45.55px;
 					border-radius: 4.48px;
 					max-width: 223.25px;
@@ -559,6 +569,45 @@ h6 {
 						display: flex;
 						justify-content: center;
 						align-items: center;
+					}
+				}
+				&:hover {
+					background-color: lighten($color: $redLightColor, $amount: 5);
+					@media (max-width: 600px) {
+						background-color: lighten($color: $lightBlueColor, $amount: 5);
+					}
+				}
+			}
+			&-status--success,
+			&-status-error {
+				display: none;
+			}
+			&-status {
+				margin-top: 10px;
+				margin-bottom: 10px;
+				padding: 10px;
+				display: none;
+				border-radius: 5px;
+				font-family: GilroyBold;
+				text-align: center;
+				&.success {
+					display: block;
+					background-color: $greenLightColor;
+					.course-form__main-status--success {
+						display: inline-block;
+					}
+					.course-form__main-status--error {
+						display: none;
+					}
+				}
+				&.error {
+					display: block;
+					background-color: $redLightColor;
+					.course-form__main-status--success {
+						display: none;
+					}
+					.course-form__main-status--error {
+						display: inline-block;
 					}
 				}
 			}

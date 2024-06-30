@@ -1,3 +1,4 @@
+import { updateFormStatus } from './libs/imask/formHandlers';
 import { setInputStatus } from './libs/imask/inputsHandlers';
 import { emailMask, telephoneMask, nameMask } from './libs/imask/maskHandler';
 var contactForm = document.querySelector('.course-form');
@@ -39,6 +40,7 @@ async function sendRequest() {
 	try {
 		var contactFormUrl = contactForm.getAttribute('data-request-link');
 		var { telephoneInput, emailInput, nameInput } = getInputsData(contactForm);
+
 		var requestData = {
 			telephone: formatPhoneNumber(telephoneInput.value),
 			email: emailInput.value,
@@ -46,6 +48,7 @@ async function sendRequest() {
 			timeStamp: JSON.stringify(new Date()),
 			userAgent: window.navigator.userAgent,
 		};
+
 		var result = await fetch(contactFormUrl, {
 			method: 'POST',
 			headers: {
@@ -55,12 +58,15 @@ async function sendRequest() {
 		});
 		if (result.ok) {
 			resetFormValues(contactForm);
+			updateFormStatus(contactForm, true);
 		} else {
 			setInputStatusWrapper(contactForm, false);
+			updateFormStatus(contactForm, false);
 			throw new Error('Request is not sent');
 		}
 	} catch (error) {
 		setInputStatusWrapper(contactForm, false);
+		updateFormStatus(contactForm, false);
 	}
 }
 function resetFormValues(contactForm) {
@@ -83,9 +89,9 @@ function formatPhoneNumber(phoneNumber) {
 
 async function initFormValidationHandlers() {
 	var { telephoneInput, emailInput, nameInput } = getInputsData(contactForm);
-	var telephoneInputResult = telephoneMask(telephoneInput);
-	var emailInputResult = emailMask(emailInput);
-	var nameInputResult = nameMask(nameInput);
+	var telephoneInputResult = telephoneMask(telephoneInput, contactForm);
+	var emailInputResult = emailMask(emailInput, contactForm);
+	var nameInputResult = nameMask(nameInput, contactForm);
 }
 
 function getInputsData(contactForm) {

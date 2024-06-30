@@ -17,8 +17,6 @@
 			window.$.fn = {};
 		</script>
 		<script defer src="js/app.min.js"></script>
-		
-		
 	</head>
 	<body>
 		<header class="header">
@@ -125,7 +123,10 @@
 							</p>
 						</div>
 					</div>
-					<div class="course-form" data-request-link="https://parallel-unique-flax.glitch.me/sendform">
+					<div
+						class="course-form"
+						data-request-link="https://parallel-unique-flax.glitch.me/sendform"
+					>
 						<div class="course-form__inner">
 							<div class="course-form__heading">
 								<h2 class="course-form__heading-caption">
@@ -134,6 +135,12 @@
 								</h2>
 							</div>
 							<div class="course-form__main">
+								<div class="course-form__main-status">
+									<span class="course-form__main-status--success">Ваше сообщение отправлено.</span>
+									<span class="course-form__main-status--error"
+										>Произошла ошибка, повторите позже</span
+									>
+								</div>
 								<div class="course-form__main-field">
 									<input
 										class="course-form__main-input"
@@ -144,11 +151,6 @@
 									<span class="course-form__main-field-error course-form__main-field-error-standart"
 										>Введите имя и фамилию корректно</span
 									>
-									<span
-										class="course-form__main-field-error course-form__main-field-error-undefined"
-									>
-										Ой-ой, что-то пошло не так
-									</span>
 								</div>
 								<div class="course-form__main-field">
 									<input
@@ -161,11 +163,6 @@
 									<span class="course-form__main-field-error course-form__main-field-error-standart"
 										>Введите корректный номер телефона</span
 									>
-									<span
-										class="course-form__main-field-error course-form__main-field-error-undefined"
-									>
-										Ой-ой, что-то пошло не так
-									</span>
 								</div>
 								<div class="course-form__main-field">
 									<input
@@ -177,16 +174,11 @@
 									<span class="course-form__main-field-error course-form__main-field-error-standart"
 										>Введите корректный адресс почты</span
 									>
-									<span
-										class="course-form__main-field-error course-form__main-field-error-undefined"
-									>
-										Ой-ой, что-то пошло не так
-									</span>
 								</div>
+								
 								<div class="course-form__main-button-container">
 									<button class="course-form__main-button">
 										<span class="course-form__main-button--send">Записаться бесплатно</span>
-										<span class="course-form__main-button--recived">Отправлено</span>
 									</button>
 								</div>
 							</div>

@@ -1,14 +1,15 @@
+import { updateFormStatus } from './formHandlers';
 import { setInputStatus } from './inputsHandlers';
 import { maskList } from './maskList';
 
 const EMAIL_PATTERN = /^\S+@\S+\.\S+$/;
 const NAME_PATTERN = /^[^\s\d]([А-Яа-яЁёA-Za-zІіЇїЄєҐґ]+(\s[А-Яа-яЁёA-Za-zІіЇїЄєҐґ]+)*)?[^\s\d]$/;
 
-export const telephoneMask = (input) => {
+export const telephoneMask = (input, parentSelector) => {
 	function setMask() {
+		updateFormStatus(parentSelector, null);
 		let matrix = '+###############';
 		let valid = false;
-
 		maskList.forEach((item) => {
 			let code = item.code.replace(/[\s#]/g, ''),
 				phone = this.value.replace(/[\s#-)(]/g, '');
@@ -44,8 +45,9 @@ export const telephoneMask = (input) => {
 	input.addEventListener('blur', () => setMask.call(input));
 };
 
-export var emailMask = (input) => {
+export var emailMask = (input, parentSelector) => {
 	function setMask() {
+		updateFormStatus(parentSelector, null);
 		if (input.value.trim().length < 1) return setInputStatus(this, null);
 		if (!EMAIL_PATTERN.test(this.value)) {
 			setInputStatus(this, false);
@@ -60,8 +62,9 @@ export var emailMask = (input) => {
 	input.addEventListener('blur', setMask);
 };
 
-export var nameMask = (input) => {
+export var nameMask = (input, parentSelector) => {
 	if (!input) return;
+	updateFormStatus(parentSelector, null);
 	function setMask() {
 		if (this.value.trim().length < 1) return setInputStatus(this, null);
 		if (!NAME_PATTERN.test(this.value)) {
