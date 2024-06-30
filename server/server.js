@@ -1,26 +1,42 @@
 const TelegramBot = require('node-telegram-bot-api');
 const path = require('path');
+const fs = require('fs');
 const fastify = require('fastify')({
   logger: false,
 });
 const fastifyCors = require('@fastify/cors');
 
 fastify.register(fastifyCors, {
-  origin: 'https://blackswordmen.github.io', // Замените на домен вашего фронтенда
+  origin: 'https://blackswordmen.github.io', 
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type'],
 });
+
+const chatIdsFile = path.join(__dirname, 'chatIds.json');
+
+function loadChatIds() {
+  if (fs.existsSync(chatIdsFile)) {
+    const data = fs.readFileSync(chatIdsFile, 'utf8');
+    return JSON.parse(data);
+  }
+  return [];
+}
+
+function saveChatIds() {
+  fs.writeFileSync(chatIdsFile, JSON.stringify(users, null, 2), 'utf8');
+}
 
 function pushUserId(userId) {
   if (users.includes(userId)) return;
   else {
     users.push(userId);
+    saveChatIds();
   }
 }
 
 const TOKEN = '7188800096:AAH2gi3R3wxU2_gL3c_Dcds3NfRFbby4yBA';
 let bot;
-var users = [];
+var users = loadChatIds();
 
 function sendToAllUsers(message) {
   users.forEach((chatId) => {
