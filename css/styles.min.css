@@ -156,6 +156,11 @@ h6 {
   padding-left: 23px;
   padding-right: 22px;
   align-items: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.header-top__additional-item:hover {
+  background-color: #39376b;
 }
 
 .header-top__additional-item--time {
@@ -399,6 +404,11 @@ h6 {
   border: 1px solid transparent;
 }
 
+.course-form__main-field input:hover,
+.course-form__main-field input:focus {
+  box-shadow: 1px 1px 1px #13161e;
+}
+
 .course-form__main-field input::-moz-placeholder {
   color: #d7d7d7;
 }
@@ -429,6 +439,52 @@ h6 {
   font-size: 15px;
   line-height: 24px;
   color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+
+.course-form__main-button:hover {
+  background-color: #ff4e6e;
+}
+
+.course-form__main-status--success,
+.course-form__main-status-error {
+  display: none;
+}
+
+.course-form__main-status {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  display: none;
+  border-radius: 5px;
+  font-family: GilroyBold;
+  text-align: center;
+}
+
+.course-form__main-status.success {
+  display: block;
+  background-color: #66c430;
+}
+
+.course-form__main-status.success .course-form__main-status--success {
+  display: inline-block;
+}
+
+.course-form__main-status.success .course-form__main-status--error {
+  display: none;
+}
+
+.course-form__main-status.error {
+  display: block;
+  background-color: #ff3459;
+}
+
+.course-form__main-status.error .course-form__main-status--success {
+  display: none;
+}
+
+.course-form__main-status.error .course-form__main-status--error {
+  display: inline-block;
 }
 
 .course-form__main-button--send {
@@ -808,6 +864,10 @@ h6 {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .course-form__main-button:hover {
+    background-color: #1a5aff;
   }
 
   .course-form__rights p,

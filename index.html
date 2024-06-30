@@ -4,8 +4,8 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<title>rgb_test volodymir harmash</title>
-		<link href="css/fonts/fonts.min.css?_v=20240629210952" rel="stylesheet">
-		<link href="css/styles.min.css?_v=20240629210952" rel="stylesheet">
+		<link href="css/fonts/fonts.min.css?_v=20240630120945" rel="stylesheet">
+		<link href="css/styles.min.css?_v=20240630120945" rel="stylesheet">
 		
 		<script>
 			// hack to get the plugin to work without loading jQuery
@@ -16,9 +16,7 @@
 			};
 			window.$.fn = {};
 		</script>
-		<script defer="defer" src="js/app.min.js?_v=20240629210952"></script>
-		
-		
+		<script defer="defer" src="js/app.min.js?_v=20240630120945"></script>
 	</head>
 	<body>
 		<header class="header">
@@ -102,31 +100,26 @@
 								</h2>
 							</div>
 							<div class="course-form__main">
+								<div class="course-form__main-status">
+									<span class="course-form__main-status--success">Ваше сообщение отправлено.</span>
+									<span class="course-form__main-status--error">Произошла ошибка, повторите позже</span>
+								</div>
 								<div class="course-form__main-field">
 									<input class="course-form__main-input" type="text" data-validation-type="name" placeholder="Ваше имя и фамилия">
 									<span class="course-form__main-field-error course-form__main-field-error-standart">Введите имя и фамилию корректно</span>
-									<span class="course-form__main-field-error course-form__main-field-error-undefined">
-										Ой-ой, что-то пошло не так
-									</span>
 								</div>
 								<div class="course-form__main-field">
 									<input class="course-form__main-input" type="tel" id="phone" data-validation-type="telephone" placeholder="Ваш номер телефона">
 									<span class="course-form__main-field-error course-form__main-field-error-standart">Введите корректный номер телефона</span>
-									<span class="course-form__main-field-error course-form__main-field-error-undefined">
-										Ой-ой, что-то пошло не так
-									</span>
 								</div>
 								<div class="course-form__main-field">
 									<input class="course-form__main-input" type="text" data-validation-type="email" placeholder="Ваш email">
 									<span class="course-form__main-field-error course-form__main-field-error-standart">Введите корректный адресс почты</span>
-									<span class="course-form__main-field-error course-form__main-field-error-undefined">
-										Ой-ой, что-то пошло не так
-									</span>
 								</div>
+								
 								<div class="course-form__main-button-container">
 									<button class="course-form__main-button">
 										<span class="course-form__main-button--send">Записаться бесплатно</span>
-										<span class="course-form__main-button--recived">Отправлено</span>
 									</button>
 								</div>
 							</div>
